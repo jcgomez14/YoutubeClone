@@ -28,7 +28,7 @@ class ChannelCell: UITableViewCell {
     
     private func configView() {
         bellImage.image = UIImage(named: "bell")?.withRenderingMode(.alwaysTemplate)
-        bellImage.tintColor = UIColor(named: "grayColor")
+        bellImage.tintColor = .grayColor
         profileImage.layer.cornerRadius = 51/2
     }
     
