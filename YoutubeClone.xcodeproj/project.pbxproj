@@ -20,6 +20,7 @@
 		B5083D672955FBA500F5F8CD /* AboutProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5083D662955FBA500F5F8CD /* AboutProvider.swift */; };
 		B5083D6A2955FBD600F5F8CD /* AboutPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5083D692955FBD600F5F8CD /* AboutPresenter.swift */; };
 		B5083D6C2955FC7100F5F8CD /* AboutProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5083D6B2955FC7100F5F8CD /* AboutProviderMock.swift */; };
+		B5083D6E29562C5300F5F8CD /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5083D6D29562C5300F5F8CD /* UITableView+Extension.swift */; };
 		B51CD07429548E4400F5ECC6 /* VideoOnlyOne.json in Resources */ = {isa = PBXBuildFile; fileRef = B51CD06E29548E4400F5ECC6 /* VideoOnlyOne.json */; };
 		B51CD07529548E4400F5ECC6 /* SearchVideos.json in Resources */ = {isa = PBXBuildFile; fileRef = B51CD06F29548E4400F5ECC6 /* SearchVideos.json */; };
 		B51CD07629548E4400F5ECC6 /* Channel.json in Resources */ = {isa = PBXBuildFile; fileRef = B51CD07029548E4400F5ECC6 /* Channel.json */; };
@@ -84,6 +85,7 @@
 		B5083D662955FBA500F5F8CD /* AboutProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutProvider.swift; sourceTree = "<group>"; };
 		B5083D692955FBD600F5F8CD /* AboutPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPresenter.swift; sourceTree = "<group>"; };
 		B5083D6B2955FC7100F5F8CD /* AboutProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutProviderMock.swift; sourceTree = "<group>"; };
+		B5083D6D29562C5300F5F8CD /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		B51CD06E29548E4400F5ECC6 /* VideoOnlyOne.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = VideoOnlyOne.json; sourceTree = "<group>"; };
 		B51CD06F29548E4400F5ECC6 /* SearchVideos.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SearchVideos.json; sourceTree = "<group>"; };
 		B51CD07029548E4400F5ECC6 /* Channel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Channel.json; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				B5083D482955D2C900F5F8CD /* UIView+Extension.swift */,
+				B5083D6D29562C5300F5F8CD /* UITableView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				B5A93020295335460043390D /* PlaylistViewController.swift in Sources */,
 				B5A9303C2953453B0043390D /* Constans.swift in Sources */,
 				B522F8852951FBA300F6528C /* AppDelegate.swift in Sources */,
+				B5083D6E29562C5300F5F8CD /* UITableView+Extension.swift in Sources */,
 				B5A9302C2953356A0043390D /* HomeViewController.swift in Sources */,
 				B5083D502955DAA500F5F8CD /* VideosPresenter.swift in Sources */,
 				B5A93028295335610043390D /* ChannelViewController.swift in Sources */,

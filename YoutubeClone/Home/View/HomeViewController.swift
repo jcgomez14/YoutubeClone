@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     }
 
     func configTableView(){
+        
         let nibChannel = UINib(nibName: "\(ChannelCell.self)", bundle: nil)
         tableViewHome.register(nibChannel, forCellReuseIdentifier: "\(ChannelCell.self)")
         
@@ -30,7 +31,6 @@ class HomeViewController: UIViewController {
         tableViewHome.register(nibPlaylist, forCellReuseIdentifier: "\(PlaylistCell.self)")
         
         tableViewHome.register(SectionTitleView.self, forHeaderFooterViewReuseIdentifier: "\(SectionTitleView.self)")
-        
         
         tableViewHome.delegate = self
         tableViewHome.dataSource = self

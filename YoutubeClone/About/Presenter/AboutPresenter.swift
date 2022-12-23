@@ -20,7 +20,6 @@ class AboutPresenter {
             #endif
     }
     
-    
     @MainActor
     func getAbout() async {
         aboutObject.removeAll()
