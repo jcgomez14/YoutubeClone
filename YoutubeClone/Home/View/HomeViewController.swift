@@ -20,17 +20,10 @@ class HomeViewController: UIViewController {
     }
 
     func configTableView(){
-        
-        let nibChannel = UINib(nibName: "\(ChannelCell.self)", bundle: nil)
-        tableViewHome.register(nibChannel, forCellReuseIdentifier: "\(ChannelCell.self)")
-        
-        let nibVideo = UINib(nibName: "\(VideoCell.self)", bundle: nil)
-        tableViewHome.register(nibVideo, forCellReuseIdentifier: "\(VideoCell.self)")
-        
-        let nibPlaylist = UINib(nibName: "\(PlaylistCell.self)", bundle: nil)
-        tableViewHome.register(nibPlaylist, forCellReuseIdentifier: "\(PlaylistCell.self)")
-        
-        tableViewHome.register(SectionTitleView.self, forHeaderFooterViewReuseIdentifier: "\(SectionTitleView.self)")
+        tableViewHome.register(cell: ChannelCell.self)
+        tableViewHome.register(cell: VideoCell.self)
+        tableViewHome.register(cell: PlaylistCell.self)
+        tableViewHome.registerFromClass(headerFooterView: SectionTitleView.self)
         
         tableViewHome.delegate = self
         tableViewHome.dataSource = self
@@ -50,16 +43,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let item = objectList[indexPath.section]
         
         if let channel = item as? [ChannelModel.Items] {
-            guard let channelCell = tableView.dequeueReusableCell(withIdentifier: "\(ChannelCell.self)", for: indexPath) as? ChannelCell else {
-                return UITableViewCell()
-            }
+            let channelCell = tableView.deuqueueReusableCell(for: ChannelCell.self, for: indexPath)
             channelCell.configCell(model: channel[indexPath.row])
             return channelCell
 
         } else if let playlistItems = item as? [PlaylistItemsModel.Items] {
-            guard let playlistItemsCell = tableView.dequeueReusableCell(withIdentifier: "\(VideoCell.self)", for: indexPath) as? VideoCell else {
-                return UITableViewCell()
-            }
+            let playlistItemsCell = tableView.deuqueueReusableCell(for: VideoCell.self, for: indexPath)
             playlistItemsCell.configCell(model: playlistItems[indexPath.row])
             
             playlistItemsCell.didTapDotsButton = { [weak self] in
@@ -69,9 +58,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return playlistItemsCell
             
         } else if let videos = item as? [VideoModel.Items] {
-            guard let videosCell = tableView.dequeueReusableCell(withIdentifier: "\(VideoCell.self)", for: indexPath) as? VideoCell else {
-                return UITableViewCell()
-            }
+            let videosCell = tableView.deuqueueReusableCell(for: VideoCell.self, for: indexPath)
             videosCell.configCell(model: videos[indexPath.row])
             
             videosCell.didTapDotsButton = { [weak self] in
@@ -81,9 +68,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return videosCell
             
         } else if let playlist = item as? [PlaylistModel.Items] {
-            guard let playlistCell = tableView.dequeueReusableCell(withIdentifier: "\(PlaylistCell.self)", for: indexPath) as? PlaylistCell else {
-                return UITableViewCell()
-            }
+            let playlistCell = tableView.deuqueueReusableCell(for: PlaylistCell.self, for: indexPath)
             playlistCell.configCell(model: playlist[indexPath.row])
             
             playlistCell.didTapDotsButton = { [weak self] in

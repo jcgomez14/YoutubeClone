@@ -12,8 +12,9 @@ extension UITableView {
         register(UINib(nibName: "\(T.self)", bundle: nil), forHeaderFooterViewReuseIdentifier: "\(T.self)")
     }
     
-    public func registerFromClass<T: UITableViewHeaderFooterView>(headerFooterVieew: T.Type) {
-        register(UINib(nibName: "\(T.self)", bundle: nil), forHeaderFooterViewReuseIdentifier: "\(T.self)")
+    public func registerFromClass<T: UITableViewHeaderFooterView>(headerFooterView: T.Type) {
+        register(T.self, forHeaderFooterViewReuseIdentifier: "\(T.self)")
+        
     }
     
     public func deuqueueReusableCell<T: UITableViewCell> (for: T.Type, for indexPath: IndexPath) -> T {
