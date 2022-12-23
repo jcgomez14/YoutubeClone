@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="509" id="KGk-i7-Jjw" customClass="VideoCell" customModule="YoutubeClone" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="377" height="100"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="377" height="100"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8QT-pF-lWu">
+                        <rect key="frame" x="14" y="0.0" width="349" height="86"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maxresdefault" translatesAutoresizingMaskIntoConstraints="NO" id="dyF-5x-zFP">
+                                <rect key="frame" x="0.0" y="0.0" width="144" height="86"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="144" id="8Qk-fP-fku"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="aRz-8R-cwL">
+                                <rect key="frame" x="154" y="0.0" width="195" height="86"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title Video" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uO5-Fo-Mwv">
+                                        <rect key="frame" x="0.0" y="0.0" width="195" height="30.333333333333332"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" name="whiteColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Channel Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2JM-6Z-MAk">
+                                        <rect key="frame" x="0.0" y="30.333333333333329" width="195" height="28"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" name="grayColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Video" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9it-u9-486">
+                                        <rect key="frame" x="0.0" y="58.333333333333336" width="195" height="27.666666666666664"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" name="grayColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="backgroundColor"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="backgroundColor"/>
+                    </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dots" translatesAutoresizingMaskIntoConstraints="NO" id="aVt-D7-H1q">
+                        <rect key="frame" x="358" y="0.0" width="13" height="13"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="13" id="dco-YB-xWj"/>
+                            <constraint firstAttribute="height" constant="13" id="gUP-Gk-P1E"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2N-U8-Jdj">
+                        <rect key="frame" x="358" y="0.0" width="13" height="13"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="plain"/>
+                        <connections>
+                            <action selector="dotsButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Dh5-DE-zJ5"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" name="backgroundColor"/>
+                <constraints>
+                    <constraint firstItem="8QT-pF-lWu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="290-mA-UKj"/>
+                    <constraint firstAttribute="trailing" secondItem="8QT-pF-lWu" secondAttribute="trailing" constant="14" id="61H-2z-anJ"/>
+                    <constraint firstItem="aVt-D7-H1q" firstAttribute="top" secondItem="uO5-Fo-Mwv" secondAttribute="top" id="7l2-ki-YnF"/>
+                    <constraint firstItem="M2N-U8-Jdj" firstAttribute="width" secondItem="aVt-D7-H1q" secondAttribute="width" id="9A6-2i-MDo"/>
+                    <constraint firstAttribute="bottom" secondItem="8QT-pF-lWu" secondAttribute="bottom" constant="14" id="APO-io-RN2"/>
+                    <constraint firstItem="M2N-U8-Jdj" firstAttribute="centerX" secondItem="aVt-D7-H1q" secondAttribute="centerX" id="RRn-rT-JRu"/>
+                    <constraint firstItem="M2N-U8-Jdj" firstAttribute="centerY" secondItem="aVt-D7-H1q" secondAttribute="centerY" id="XSR-Ix-OOb"/>
+                    <constraint firstAttribute="trailing" secondItem="aVt-D7-H1q" secondAttribute="trailing" constant="6" id="Xkn-pC-KNH"/>
+                    <constraint firstItem="8QT-pF-lWu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="14" id="ahm-WK-I8E"/>
+                    <constraint firstItem="M2N-U8-Jdj" firstAttribute="height" secondItem="aVt-D7-H1q" secondAttribute="height" id="cOC-FD-sP8"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="channelName" destination="2JM-6Z-MAk" id="OiQ-Tk-nAn"/>
+                <outlet property="dotsImage" destination="aVt-D7-H1q" id="gk5-2d-dL1"/>
+                <outlet property="videoImage" destination="dyF-5x-zFP" id="tcn-f1-q1D"/>
+                <outlet property="videoName" destination="uO5-Fo-Mwv" id="7b5-3B-iYb"/>
+                <outlet property="viewsCountLabel" destination="9it-u9-486" id="woQ-dK-3m4"/>
+            </connections>
+            <point key="canvasLocation" x="110" y="160"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="dots" width="170.66667175292969" height="170.66667175292969"/>
+        <image name="maxresdefault" width="1280" height="720"/>
+        <namedColor name="backgroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="grayColor">
+            <color red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="whiteColor">
+            <color red="0.12549019607843137" green="0.12549019607843137" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
