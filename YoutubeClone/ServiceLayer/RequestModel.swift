@@ -22,6 +22,7 @@ struct RequestModel {
         case channels = "/channels"
         case playlist = "/playlists"
         case playlistItem = "/playlistItems"
+        case videos = "/videos"
     }
     
     enum URLBase: String {

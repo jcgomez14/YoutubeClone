@@ -15,6 +15,9 @@
 		B5023A4E2959DC7300943AF0 /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5023A4C2959DC7300943AF0 /* OptionCell.xib */; };
 		B5023A522959FE9400943AF0 /* PlayVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5023A502959FE9400943AF0 /* PlayVideoViewController.swift */; };
 		B5023A532959FE9400943AF0 /* PlayVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5023A512959FE9400943AF0 /* PlayVideoViewController.xib */; };
+		B5023A59295A20FA00943AF0 /* PlayVideoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5023A58295A20FA00943AF0 /* PlayVideoProvider.swift */; };
+		B5023A5B295A210500943AF0 /* PlayVideoProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5023A5A295A210500943AF0 /* PlayVideoProviderMock.swift */; };
+		B5023A5D295A211000943AF0 /* PlayVideoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5023A5C295A211000943AF0 /* PlayVideoPresenter.swift */; };
 		B5083D492955D2C900F5F8CD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5083D482955D2C900F5F8CD /* UIView+Extension.swift */; };
 		B5083D4E2955DA8E00F5F8CD /* VideosProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5083D4D2955DA8E00F5F8CD /* VideosProvider.swift */; };
 		B5083D502955DAA500F5F8CD /* VideosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5083D4F2955DAA500F5F8CD /* VideosPresenter.swift */; };
@@ -88,6 +91,9 @@
 		B5023A4C2959DC7300943AF0 /* OptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
 		B5023A502959FE9400943AF0 /* PlayVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayVideoViewController.swift; sourceTree = "<group>"; };
 		B5023A512959FE9400943AF0 /* PlayVideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayVideoViewController.xib; sourceTree = "<group>"; };
+		B5023A58295A20FA00943AF0 /* PlayVideoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayVideoProvider.swift; sourceTree = "<group>"; };
+		B5023A5A295A210500943AF0 /* PlayVideoProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayVideoProviderMock.swift; sourceTree = "<group>"; };
+		B5023A5C295A211000943AF0 /* PlayVideoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayVideoPresenter.swift; sourceTree = "<group>"; };
 		B5083D482955D2C900F5F8CD /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B5083D4D2955DA8E00F5F8CD /* VideosProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosProvider.swift; sourceTree = "<group>"; };
 		B5083D4F2955DAA500F5F8CD /* VideosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosPresenter.swift; sourceTree = "<group>"; };
@@ -195,10 +201,45 @@
 		B5023A4F2959FE6800943AF0 /* PlayVideos */ = {
 			isa = PBXGroup;
 			children = (
+				B5023A56295A163500943AF0 /* Model */,
+				B5023A55295A163000943AF0 /* Presenter */,
+				B5023A54295A162900943AF0 /* View */,
+			);
+			path = PlayVideos;
+			sourceTree = "<group>";
+		};
+		B5023A54295A162900943AF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
 				B5023A502959FE9400943AF0 /* PlayVideoViewController.swift */,
 				B5023A512959FE9400943AF0 /* PlayVideoViewController.xib */,
 			);
-			path = PlayVideos;
+			path = View;
+			sourceTree = "<group>";
+		};
+		B5023A55295A163000943AF0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				B5023A5C295A211000943AF0 /* PlayVideoPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B5023A56295A163500943AF0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B5023A57295A164100943AF0 /* Provider */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B5023A57295A164100943AF0 /* Provider */ = {
+			isa = PBXGroup;
+			children = (
+				B5023A58295A20FA00943AF0 /* PlayVideoProvider.swift */,
+				B5023A5A295A210500943AF0 /* PlayVideoProviderMock.swift */,
+			);
+			path = Provider;
 			sourceTree = "<group>";
 		};
 		B5083D472955D28F00F5F8CD /* Extensions */ = {
@@ -675,13 +716,16 @@
 				B51CD07D2954E87A00F5ECC6 /* SectionTitleView.swift in Sources */,
 				B522F89E295228E300F6528C /* PlaylistItemsModel.swift in Sources */,
 				B5A930372953434E0043390D /* ServiceLayer.swift in Sources */,
+				B5023A5B295A210500943AF0 /* PlayVideoProviderMock.swift in Sources */,
 				B522F8892951FBA300F6528C /* ViewController.swift in Sources */,
 				B5A9304229534ED20043390D /* HomeProvider.swift in Sources */,
 				B5023A492959D94000943AF0 /* TabsView.swift in Sources */,
+				B5023A5D295A211000943AF0 /* PlayVideoPresenter.swift in Sources */,
 				B5A9305F2953A1930043390D /* VideoCell.swift in Sources */,
 				B5A93039295343540043390D /* RequestModel.swift in Sources */,
 				B51CD0812954EDCE00F5ECC6 /* BottomSheetViewController.swift in Sources */,
 				B522F8A529522FE300F6528C /* RootViewController.swift in Sources */,
+				B5023A59295A20FA00943AF0 /* PlayVideoProvider.swift in Sources */,
 				B5A9305729539E610043390D /* MockManager.swift in Sources */,
 				B5083D70295648C900F5F8CD /* UIColor+Extension.swift in Sources */,
 				B5083D4E2955DA8E00F5F8CD /* VideosProvider.swift in Sources */,

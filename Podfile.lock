@@ -1,20 +1,24 @@
 PODS:
   - FloatingPanel (2.5.5)
   - Kingfisher (7.4.1)
+  - youtube-ios-player-helper (1.0.4)
 
 DEPENDENCIES:
   - FloatingPanel
   - Kingfisher
+  - youtube-ios-player-helper
 
 SPEC REPOS:
   trunk:
     - FloatingPanel
     - Kingfisher
+    - youtube-ios-player-helper
 
 SPEC CHECKSUMS:
   FloatingPanel: a27e7827e0f710fa6236fe2596dd1b5484cb4fc1
   Kingfisher: cd762a593a61b2fbecf7645c00f9a801a3ebfc9c
+  youtube-ios-player-helper: e9b97535e816db3152179d84d999bc1807ecd689
 
-PODFILE CHECKSUM: 18caf21584d68db74abfb38ac72ea4701a594de4
+PODFILE CHECKSUM: 1d5a9dbf3f18532c9d6a6249ce52c4efc0a2e0a1
 
 COCOAPODS: 1.11.3
