@@ -8,6 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		84D0B477484C50503F44A733 /* Pods_YoutubeClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08EACA377E36BAF18AD0AD1F /* Pods_YoutubeClone.framework */; };
+		B5023A442959C68600943AF0 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5023A432959C68600943AF0 /* UIImage+Extension.swift */; };
+		B5023A462959C9FD00943AF0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5023A452959C9FD00943AF0 /* BaseViewController.swift */; };
+		B5023A492959D94000943AF0 /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5023A482959D94000943AF0 /* TabsView.swift */; };
+		B5023A4D2959DC7300943AF0 /* OptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5023A4B2959DC7300943AF0 /* OptionCell.swift */; };
+		B5023A4E2959DC7300943AF0 /* OptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5023A4C2959DC7300943AF0 /* OptionCell.xib */; };
+		B5023A522959FE9400943AF0 /* PlayVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5023A502959FE9400943AF0 /* PlayVideoViewController.swift */; };
+		B5023A532959FE9400943AF0 /* PlayVideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B5023A512959FE9400943AF0 /* PlayVideoViewController.xib */; };
 		B5083D492955D2C900F5F8CD /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5083D482955D2C900F5F8CD /* UIView+Extension.swift */; };
 		B5083D4E2955DA8E00F5F8CD /* VideosProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5083D4D2955DA8E00F5F8CD /* VideosProvider.swift */; };
 		B5083D502955DAA500F5F8CD /* VideosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5083D4F2955DAA500F5F8CD /* VideosPresenter.swift */; };
@@ -74,6 +81,13 @@
 /* Begin PBXFileReference section */
 		08EACA377E36BAF18AD0AD1F /* Pods_YoutubeClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YoutubeClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		63190396A2A9C14A9E2A8CC4 /* Pods-YoutubeClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YoutubeClone.release.xcconfig"; path = "Target Support Files/Pods-YoutubeClone/Pods-YoutubeClone.release.xcconfig"; sourceTree = "<group>"; };
+		B5023A432959C68600943AF0 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		B5023A452959C9FD00943AF0 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		B5023A482959D94000943AF0 /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
+		B5023A4B2959DC7300943AF0 /* OptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionCell.swift; sourceTree = "<group>"; };
+		B5023A4C2959DC7300943AF0 /* OptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionCell.xib; sourceTree = "<group>"; };
+		B5023A502959FE9400943AF0 /* PlayVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayVideoViewController.swift; sourceTree = "<group>"; };
+		B5023A512959FE9400943AF0 /* PlayVideoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayVideoViewController.xib; sourceTree = "<group>"; };
 		B5083D482955D2C900F5F8CD /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		B5083D4D2955DA8E00F5F8CD /* VideosProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosProvider.swift; sourceTree = "<group>"; };
 		B5083D4F2955DAA500F5F8CD /* VideosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosPresenter.swift; sourceTree = "<group>"; };
@@ -160,12 +174,40 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B5023A472959D91D00943AF0 /* TabsView */ = {
+			isa = PBXGroup;
+			children = (
+				B5023A4A2959DC4A00943AF0 /* Cell */,
+				B5023A482959D94000943AF0 /* TabsView.swift */,
+			);
+			path = TabsView;
+			sourceTree = "<group>";
+		};
+		B5023A4A2959DC4A00943AF0 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				B5023A4B2959DC7300943AF0 /* OptionCell.swift */,
+				B5023A4C2959DC7300943AF0 /* OptionCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		B5023A4F2959FE6800943AF0 /* PlayVideos */ = {
+			isa = PBXGroup;
+			children = (
+				B5023A502959FE9400943AF0 /* PlayVideoViewController.swift */,
+				B5023A512959FE9400943AF0 /* PlayVideoViewController.xib */,
+			);
+			path = PlayVideos;
+			sourceTree = "<group>";
+		};
 		B5083D472955D28F00F5F8CD /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				B5083D482955D2C900F5F8CD /* UIView+Extension.swift */,
 				B5083D6D29562C5300F5F8CD /* UITableView+Extension.swift */,
 				B5083D6F295648C900F5F8CD /* UIColor+Extension.swift */,
+				B5023A432959C68600943AF0 /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -307,6 +349,7 @@
 				B5A9301B295335260043390D /* Channel */,
 				B5A9301A2953351D0043390D /* Home */,
 				B522F8A329522FC400F6528C /* Main */,
+				B5023A4F2959FE6800943AF0 /* PlayVideos */,
 				B522F89A295223F500F6528C /* Model */,
 				B522F8842951FBA300F6528C /* AppDelegate.swift */,
 				B522F8862951FBA300F6528C /* SceneDelegate.swift */,
@@ -334,6 +377,7 @@
 		B522F8A329522FC400F6528C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				B5023A472959D91D00943AF0 /* TabsView */,
 				B522F8A429522FE300F6528C /* RootViewController.swift */,
 				B522F8A629522FF300F6528C /* MainViewController.swift */,
 			);
@@ -411,6 +455,7 @@
 				B5A93047295394CB0043390D /* Mock */,
 				B5A9303B2953453B0043390D /* Constans.swift */,
 				B5A930482953950E0043390D /* Utils.swift */,
+				B5023A452959C9FD00943AF0 /* BaseViewController.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -548,6 +593,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5023A4E2959DC7300943AF0 /* OptionCell.xib in Resources */,
 				B51CD07429548E4400F5ECC6 /* VideoOnlyOne.json in Resources */,
 				B51CD07829548E4400F5ECC6 /* PlaylistItems.json in Resources */,
 				B5A93021295335460043390D /* PlaylistViewController.xib in Resources */,
@@ -559,6 +605,7 @@
 				B522F88E2951FBA600F6528C /* Assets.xcassets in Resources */,
 				B51CD07529548E4400F5ECC6 /* SearchVideos.json in Resources */,
 				B522F88C2951FBA300F6528C /* Main.storyboard in Resources */,
+				B5023A532959FE9400943AF0 /* PlayVideoViewController.xib in Resources */,
 				B51CD0822954EDCE00F5ECC6 /* BottomSheetViewController.xib in Resources */,
 				B5A930642953A1A30043390D /* PlaylistCell.xib in Resources */,
 				B51CD07929548E4400F5ECC6 /* Playlists.json in Resources */,
@@ -623,12 +670,14 @@
 				B5A93031295337980043390D /* VideosViewController.swift in Sources */,
 				B5083D6C2955FC7100F5F8CD /* AboutProviderMock.swift in Sources */,
 				B5083D562955E7AB00F5F8CD /* PlaylistProvider.swift in Sources */,
+				B5023A462959C9FD00943AF0 /* BaseViewController.swift in Sources */,
 				B5A93035295343450043390D /* NetworkError.swift in Sources */,
 				B51CD07D2954E87A00F5ECC6 /* SectionTitleView.swift in Sources */,
 				B522F89E295228E300F6528C /* PlaylistItemsModel.swift in Sources */,
 				B5A930372953434E0043390D /* ServiceLayer.swift in Sources */,
 				B522F8892951FBA300F6528C /* ViewController.swift in Sources */,
 				B5A9304229534ED20043390D /* HomeProvider.swift in Sources */,
+				B5023A492959D94000943AF0 /* TabsView.swift in Sources */,
 				B5A9305F2953A1930043390D /* VideoCell.swift in Sources */,
 				B5A93039295343540043390D /* RequestModel.swift in Sources */,
 				B51CD0812954EDCE00F5ECC6 /* BottomSheetViewController.swift in Sources */,
@@ -636,6 +685,7 @@
 				B5A9305729539E610043390D /* MockManager.swift in Sources */,
 				B5083D70295648C900F5F8CD /* UIColor+Extension.swift in Sources */,
 				B5083D4E2955DA8E00F5F8CD /* VideosProvider.swift in Sources */,
+				B5023A522959FE9400943AF0 /* PlayVideoViewController.swift in Sources */,
 				B5083D592955E7BE00F5F8CD /* PlaylistPresenter.swift in Sources */,
 				B5083D632955F0C000F5F8CD /* ChannelPresenter.swift in Sources */,
 				B5083D6A2955FBD600F5F8CD /* AboutPresenter.swift in Sources */,
@@ -649,6 +699,7 @@
 				B5083D492955D2C900F5F8CD /* UIView+Extension.swift in Sources */,
 				B522F8A229522A8E00F6528C /* SearchModel.swift in Sources */,
 				B5083D522955DCBA00F5F8CD /* VideosProviderMock.swift in Sources */,
+				B5023A442959C68600943AF0 /* UIImage+Extension.swift in Sources */,
 				B5A930492953950E0043390D /* Utils.swift in Sources */,
 				B5A93024295335530043390D /* AboutViewController.swift in Sources */,
 				B522F8872951FBA300F6528C /* SceneDelegate.swift in Sources */,
@@ -660,6 +711,7 @@
 				B522F8A02952298B00F6528C /* ChannelModel.swift in Sources */,
 				B522F8A729522FF300F6528C /* MainViewController.swift in Sources */,
 				B5083D672955FBA500F5F8CD /* AboutProvider.swift in Sources */,
+				B5023A4D2959DC7300943AF0 /* OptionCell.swift in Sources */,
 				B5A930462953947D0043390D /* HomeProviderMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

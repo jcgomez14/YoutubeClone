@@ -11,6 +11,12 @@ struct PlaylistItemsModel: Decodable{
         let etag : String
         let id : String
         let snippet : VideoModel.Items.Snippet
+        let contentdetails: ContentDetails?
+        
+        struct ContentDetails: Decodable {
+            let videoId: String?
+            let videoPublishedAt: String?
+        }
     }
     
     struct PageInfo: Decodable{

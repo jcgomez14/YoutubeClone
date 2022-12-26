@@ -25,7 +25,7 @@ class VideoCell: UITableViewCell {
     
     private func configView() {
         selectionStyle = .none
-        dotsImage.image = UIImage(named: "dots")?.withRenderingMode(.alwaysTemplate)
+        dotsImage.image = .dotsImage
         dotsImage.tintColor = .whiteColor
     }
     

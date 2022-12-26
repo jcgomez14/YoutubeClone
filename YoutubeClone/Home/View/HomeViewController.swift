@@ -1,5 +1,6 @@
 
 import UIKit
+import FloatingPanel
 
 class HomeViewController: UIViewController {
    
@@ -8,11 +9,12 @@ class HomeViewController: UIViewController {
     lazy var presenter = HomePresenter(delegate: self)
     private var objectList: [[Any]] = []
     private var sectionTitleList: [String] = []
-    
+    var fpc: FloatingPanelController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configTableView()
+        configPanelFloating()
         
         Task{
             await presenter.getHomeObjects()
@@ -28,7 +30,20 @@ class HomeViewController: UIViewController {
         tableViewHome.delegate = self
         tableViewHome.dataSource = self
         tableViewHome.separatorColor = .clear
+        tableViewHome.contentInset = UIEdgeInsets(top: -15, left: 0, bottom: -80, right: 0)
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pan = scrollView.panGestureRecognizer
+        let velocity = pan.velocity(in: scrollView).y
+        if velocity < -5 {
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        } else if velocity > -5 {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        }
+    }
+    
+    
 }
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,6 +117,21 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         vc.modalPresentationStyle = .overCurrentContext
         self.present(vc, animated: false)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let item = objectList[indexPath.section]
+        var videoId = ""
+        if let playlist = item as? [PlaylistItemsModel.Items] {
+            videoId = playlist[indexPath.row].contentdetails?.videoId ?? ""
+        } else if let videos = item as? [VideoModel.Items] {
+            videoId = videos[indexPath.row].id ?? ""
+        } else {
+            return
+        }
+        presentViewPanel(videoId)
+
+        
+    }
 }
 
 extension HomeViewController: HomeViewProtocol {
@@ -109,5 +139,44 @@ extension HomeViewController: HomeViewProtocol {
         objectList = list
         self.sectionTitleList = sectionTitleList
         tableViewHome.reloadData()
+    }
+}
+
+extension HomeViewController: FloatingPanelControllerDelegate  {
+    func configPanelFloating(){
+        fpc = FloatingPanelController()
+        fpc.delegate = self // Optional
+        fpc.isRemovalInteractionEnabled = true
+        fpc.surfaceView.grabberHandle.isHidden = true
+        fpc.layout = MyFloatingPanelLayout()
+        fpc.surfaceView.contentPadding = .init(top: -48, left: 0, bottom: -48, right: 0)
+        
+    }
+    
+    func floatingPanelDidRemove(_ fpc: FloatingPanelController) {
+        
+    }
+    
+    func floatingPanelWillEndDragging(_ fpc: FloatingPanelController, withVelocity velocity: CGPoint, targetState: UnsafeMutablePointer<FloatingPanelState>) {
+        if targetState.pointee != .full {
+            
+        } else {
+            
+        }
+    }
+    func presentViewPanel(_ videoId: String) {
+        let contentVC = PlayVideoViewController()
+        contentVC.videoId = videoId
+        fpc?.set(contentViewController: contentVC)
+        present(fpc!, animated: true)
+    }
+    
+    class MyFloatingPanelLayout: FloatingPanelLayout {
+        let position: FloatingPanelPosition = .bottom
+        let initialState: FloatingPanelState = .full
+        let anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] = [
+            .full: FloatingPanelLayoutAnchor(absoluteInset: 0.0, edge: .top, referenceGuide: .safeArea),
+            .tip: FloatingPanelLayoutAnchor(absoluteInset: 60.0, edge: .bottom, referenceGuide: .safeArea),
+        ]
     }
 }

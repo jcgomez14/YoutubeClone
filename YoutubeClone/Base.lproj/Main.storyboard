@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6YQ-7T-VDV">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
@@ -17,25 +17,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9g-2h-8ey">
-                                <rect key="frame" x="0.0" y="47" width="390" height="763"/>
+                                <rect key="frame" x="0.0" y="136" width="390" height="674"/>
                                 <connections>
                                     <segue destination="0YY-iT-WRB" kind="embed" id="PCu-ZE-4qf"/>
                                 </connections>
                             </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I2T-8N-EkY" customClass="TabsView" customModule="YoutubeClone" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="91" width="390" height="45"/>
+                                <color key="backgroundColor" name="backgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Z7U-iT-y5s"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="backgroundColor"/>
                         <constraints>
-                            <constraint firstItem="G9g-2h-8ey" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="SbU-94-X1t"/>
+                            <constraint firstItem="I2T-8N-EkY" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7Ll-tk-rVA"/>
+                            <constraint firstItem="G9g-2h-8ey" firstAttribute="top" secondItem="I2T-8N-EkY" secondAttribute="bottom" id="FyQ-BV-JLq"/>
+                            <constraint firstItem="G9g-2h-8ey" firstAttribute="top" secondItem="I2T-8N-EkY" secondAttribute="bottom" id="SbU-94-X1t"/>
                             <constraint firstItem="G9g-2h-8ey" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XEF-7z-WNp"/>
+                            <constraint firstItem="I2T-8N-EkY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZdA-NU-ftH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="I2T-8N-EkY" secondAttribute="trailing" id="cVj-kG-YvL"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="G9g-2h-8ey" secondAttribute="trailing" id="nnR-4a-8mt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="G9g-2h-8ey" secondAttribute="bottom" id="xRc-MI-hNV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="cMK-dG-GrT">
+                        <nil key="title"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tabsView" destination="I2T-8N-EkY" id="StJ-ZH-4i1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55" y="4"/>
+            <point key="canvasLocation" x="983.07692307692309" y="3.5545023696682461"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="eUd-vZ-Et1">
@@ -43,7 +60,25 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="0YY-iT-WRB" customClass="RootViewController" customModule="YoutubeClone" customModuleProvider="target" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZL-ht-Jx0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034" y="20"/>
+            <point key="canvasLocation" x="1963.0769230769231" y="19.549763033175356"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="e4t-dS-GSR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6YQ-7T-VDV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nWW-rN-MAr">
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="c2U-p5-Xv6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eP0-oV-gxS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53.846153846153847" y="3.5545023696682461"/>
         </scene>
     </scenes>
     <resources>

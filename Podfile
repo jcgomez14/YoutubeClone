@@ -6,6 +6,7 @@ target 'YoutubeClone' do
   use_frameworks!
 
   # Pods for YoutubeClone
-    pod 'Kingfisher'	
+    pod 'Kingfisher'
+    pod 'FloatingPanel'
 end
 
