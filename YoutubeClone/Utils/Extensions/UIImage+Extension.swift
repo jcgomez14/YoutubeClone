@@ -41,5 +41,20 @@ extension UIImage{
     @nonobjc class var magnifyingImage: UIImage {
         return (UIImage(named: "magnifying")?.withRenderingMode(.alwaysTemplate))!
     }
+    
+    @nonobjc class var playFill: UIImage {
+        return (UIImage(systemName: "play.fill"))!
+    }
+    
+    @nonobjc class var pause: UIImage {
+        return (UIImage(systemName: "pause"))!
+    }
+    
+    @nonobjc class var videoPlaceholder: UIImage {
+        guard let image = UIImage(named: "maxresdefault") else{
+            fatalError("You should add the videoPlaceholder to the assets")
+        }
+        return image
+    }
 
 }

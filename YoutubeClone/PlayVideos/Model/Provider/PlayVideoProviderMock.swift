@@ -1,7 +1,7 @@
 
 import Foundation
 
-class PlayVideoProviderMock: PlayVideoProviderProtocolo {
+class PlayVideoProviderMock: PlayVideoProviderProtocol {
     func getVideo(_ videoId: String) async throws -> VideoModel {
         guard let model = Utils.parseJson(jsonName: "VideoOnlyOne", model: VideoModel.self) else {
             throw NetworkError.jsonDecoder

@@ -55,12 +55,10 @@ extension RootViewController {
     
 }
 
-
 extension RootViewController: UIPageViewControllerDelegate, UIPageViewControllerDataSource {
     func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return subViewsController.count
     }
-    
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         let index: Int = subViewsController.firstIndex(of: viewController) ?? 0

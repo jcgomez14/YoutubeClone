@@ -1,16 +1,16 @@
 
 import Foundation
 
-protocol PlayVideoProviderProtocolo {
+protocol PlayVideoProviderProtocol {
     func getVideo(_ videoId: String) async throws -> VideoModel
     func getRelatedVideo(_ relatedToVideoId: String) async throws -> VideoModel
     func getChannel(_ channelId: String) async throws -> ChannelModel
     
 }
 
-class PlayVideoProvider: PlayVideoProviderProtocolo {
+class PlayVideoProvider: PlayVideoProviderProtocol {
     func getVideo(_ videoId: String) async throws -> VideoModel {
-        let queryItems = ["id": videoId, "part":"snippet,contentDetails,status,statistics"]
+        let queryItems = ["id": videoId, "part": "snippet,contentDetails,status,statistics"]
         let request = RequestModel(endpoint: .videos, queryItems: queryItems)
         
         do {
@@ -23,7 +23,7 @@ class PlayVideoProvider: PlayVideoProviderProtocolo {
     }
     
     func getRelatedVideo(_ relatedToVideoId: String) async throws -> VideoModel {
-        let queryItems = ["relatedToVideoId": relatedToVideoId, "part":"snippet", "maxResults":"50", "type":"video"]
+        let queryItems = ["relatedToVideoId" : relatedToVideoId, "part": "snippet", "maxResults": "50", "type":"video"]
         let request = RequestModel(endpoint: .search, queryItems: queryItems)
         do {
             let model = try await ServiceLayer.callService(request, VideoModel.self)
@@ -34,7 +34,7 @@ class PlayVideoProvider: PlayVideoProviderProtocolo {
     }
     
     func getChannel(_ channelId: String) async throws -> ChannelModel {
-        let queryItems = ["id": channelId, "part":"sinnipet,statistics"]
+        let queryItems = ["id": channelId, "part": "snippet,statistics"]
         let request = RequestModel(endpoint: .channels, queryItems: queryItems)
         
         do {

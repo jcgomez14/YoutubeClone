@@ -9,6 +9,7 @@ class HomeViewController: BaseViewController {
     lazy var presenter = HomePresenter(delegate: self)
     private var objectList: [[Any]] = []
     private var sectionTitleList: [String] = []
+    var floatinPanelIsPresented: Bool = false
     var fpc: FloatingPanelController!
     
     override func viewDidLoad() {
@@ -125,12 +126,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             videoId = playlist[indexPath.row].contentdetails?.videoId ?? ""
         } else if let videos = item as? [VideoModel.Items] {
             videoId = videos[indexPath.row].id ?? ""
-        } else {
-            return
         }
-        presentViewPanel(videoId)
-
-        
+        if floatinPanelIsPresented {
+            fpc.willMove(toParent: nil)
+            fpc.hide(animated: true) { [weak self] in
+                self?.fpc.view.removeFromSuperview()
+                self?.fpc.removeFromParent()
+                self?.dismiss(animated: true, completion: {
+                    self?.presentViewPanel(videoId)
+                })
+            }
+        } else {
+            presentViewPanel(videoId)
+        }
     }
 }
 
@@ -142,7 +150,7 @@ extension HomeViewController: HomeViewProtocol {
     }
 }
 
-extension HomeViewController: FloatingPanelControllerDelegate  {
+extension HomeViewController: FloatingPanelControllerDelegate {
     func configPanelFloating(){
         fpc = FloatingPanelController()
         fpc.delegate = self // Optional
@@ -150,31 +158,62 @@ extension HomeViewController: FloatingPanelControllerDelegate  {
         fpc.surfaceView.grabberHandle.isHidden = true
         fpc.layout = MyFloatingPanelLayout()
         fpc.surfaceView.contentPadding = .init(top: -48, left: 0, bottom: -48, right: 0)
-        
     }
     
     func floatingPanelDidRemove(_ fpc: FloatingPanelController) {
-        
+        self.floatinPanelIsPresented = false
     }
     
-    func floatingPanelWillEndDragging(_ fpc: FloatingPanelController, withVelocity velocity: CGPoint, targetState: UnsafeMutablePointer<FloatingPanelState>) {
-        if targetState.pointee != .full {
-            
-        } else {
-            
-        }
-    }
     func presentViewPanel(_ videoId: String) {
         let contentVC = PlayVideoViewController()
         contentVC.videoId = videoId
+        contentVC.goingToBeCollapsed = {[weak self] goingToBeCollapsed in
+            guard let self = self else { return }
+            if goingToBeCollapsed {
+                self.fpc.move(to: .tip, animated: true)
+                NotificationCenter.default.post(name: .viewPosition, object: ["position":"bottom"])
+                self.fpc?.surfaceView.contentPadding = .init(top: 0, left: 0, bottom: 0, right: 0)
+            } else {
+                self.fpc.move(to: .full, animated: true)
+                NotificationCenter.default.post(name: .viewPosition, object: ["position":"top"])
+                self.fpc?.surfaceView.contentPadding = .init(top: -48, left: 0, bottom: -48, right: 0)
+            }
+        }
+        
+        contentVC.isClosedVideo = {[weak self] in
+            self?.floatinPanelIsPresented = false
+        }
+        
         fpc?.set(contentViewController: contentVC)
-        present(fpc!, animated: true)
+        // fpc?.track(scrollView: contentVC.tableViewVideos)
+        if let fpc = fpc {
+            floatinPanelIsPresented = true
+            present(fpc, animated: true)
+        }
     }
     
-    class MyFloatingPanelLayout: FloatingPanelLayout {
-        let position: FloatingPanelPosition = .bottom
-        let initialState: FloatingPanelState = .full
-        let anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] = [
+    func floatingPanelWillEndDragging(_ vc: FloatingPanelController, withVelocity velocity: CGPoint, targetState: UnsafeMutablePointer<FloatingPanelState>) {
+         if targetState.pointee != .full {
+             NotificationCenter.default.post(name: .viewPosition, object: ["position":"bottom"])
+             fpc?.surfaceView.contentPadding = .init(top: 0, left: 0, bottom: 0, right: 0)
+         }else{
+             NotificationCenter.default.post(name: .viewPosition, object: ["position":"top"])
+             fpc?.surfaceView.contentPadding = .init(top: -48, left: 0, bottom: -48, right: 0)
+         }
+     }
+    
+}
+    
+extension NSNotification.Name {
+    static let viewPosition = Notification.Name("viewPosition")
+    static let expand = Notification.Name("expand")
+}
+
+class MyFloatingPanelLayout: FloatingPanelLayout {
+    let position: FloatingPanelPosition = .bottom
+    let initialState: FloatingPanelState = .full
+    var anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] {
+        return [
             .full: FloatingPanelLayoutAnchor(absoluteInset: 0.0, edge: .top, referenceGuide: .safeArea),
             .tip: FloatingPanelLayoutAnchor(absoluteInset: 60.0, edge: .bottom, referenceGuide: .safeArea),
         ]

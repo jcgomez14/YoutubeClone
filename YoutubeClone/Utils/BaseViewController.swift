@@ -1,11 +1,9 @@
-//
-//  BaseViewController.swift
-//  YoutubeClone
-//
-//  Created by Desarrollo DevIOS on 26/12/2022.
-//
 
 import UIKit
+
+protocol BaseViewProtocol {
+    func showError(_ error: String, callback: (() -> Void)?)
+}
 
 class BaseViewController: UIViewController {
 
@@ -57,4 +55,27 @@ class BaseViewController: UIViewController {
         
     }
 
+}
+
+extension BaseViewController {
+    func showError(_ error: String, callback: (()-> Void)?) {
+        let alert = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: {action in
+            if action.style == .cancel {
+                print("cancel pressed button")
+            }
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: {action in
+            if action.style == .default {
+                if let callback = callback {
+                    callback()
+                }
+                print("retry pressed button")
+            }
+        }))
+        
+        present(alert, animated: true)
+    }
 }
