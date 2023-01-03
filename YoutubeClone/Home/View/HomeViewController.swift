@@ -2,7 +2,7 @@
 import UIKit
 import FloatingPanel
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
    
     
     @IBOutlet weak var tableViewHome: UITableView!
